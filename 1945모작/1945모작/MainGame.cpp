@@ -18,6 +18,7 @@ CMainGame::~CMainGame()
 void CMainGame::Initialize(void)
 {
 	m_hDC = GetDC(g_hWnd);
+
 	CBmp_Manager::Get_Instance()->Insert_Bmp(L"../Image/Back.bmp", L"BackBuffer");
 	CLevel_Manager::Get_Instance()->Level_Change(LEVEL_MENU);
 }
@@ -46,6 +47,7 @@ void CMainGame::Render(void)
 	}
 
 #pragma region 이중 버퍼
+
 	HDC	hBackDC = CBmp_Manager::Get_Instance()->Find_Img(L"BackBuffer");
 	CLevel_Manager::Get_Instance()->Render(hBackDC);
 	BitBlt(m_hDC, 0, 0, WINCX, WINCY, hBackDC, 0, 0, SRCCOPY);
@@ -55,5 +57,6 @@ void CMainGame::Render(void)
 
 void CMainGame::Release(void)
 {
+	
 	ReleaseDC(g_hWnd, m_hDC);
 }

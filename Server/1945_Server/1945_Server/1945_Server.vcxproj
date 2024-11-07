@@ -134,6 +134,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="1945_Server.cpp" />
+    <ClCompile Include="MainServer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="1945_Server.rc" />
